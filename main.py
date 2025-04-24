@@ -1,4 +1,4 @@
-from stats import get_num_words, get_num_chars
+from stats import get_num_words, get_num_chars, format_stats, display_stats
 
 
 def get_book_text(file_path: str) -> str:
@@ -20,12 +20,22 @@ def main() -> None:
     Main function to execute the script.
     '''
     book_path = "books/frankenstein.txt"
+    print(f"Analyzing book found at {book_path}")
+
     book_text = get_book_text(book_path)
+    print("----------- Word Count ----------")
+
     num_words = get_num_words(book_text)
+    print(f"Found {num_words} total words")
+
     char_nums = get_num_chars(book_text)
-    print(f"{num_words} words found in the document")
-    print(char_nums)
+    print("--------- Character Count -------")
+
+    character_stats = format_stats(char_nums)
+    display_stats(character_stats)
 
 
 if __name__ == "__main__":
+    print("============ BOOKBOT ============")
     main()
+    print("============= END ===============")
