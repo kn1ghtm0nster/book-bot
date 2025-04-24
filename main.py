@@ -1,3 +1,5 @@
+import sys
+
 from stats import get_num_words, get_num_chars, format_stats, display_stats
 
 
@@ -19,7 +21,14 @@ def main() -> None:
     '''
     Main function to execute the script.
     '''
-    book_path = "books/frankenstein.txt"
+    # book_path = "books/frankenstein.txt"
+    terminal_inputs = sys.argv
+
+    if len(terminal_inputs) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    book_path = terminal_inputs[1]
     print(f"Analyzing book found at {book_path}")
 
     book_text = get_book_text(book_path)
