@@ -21,9 +21,9 @@ def get_num_chars(text: str) -> dict[str, int]:
     :return dict: A dictionary with characters as keys and their counts as values.
     '''
     char_count = {}
-    updated_text = text.lower()
+    lower_cased_text = text.lower()
 
-    for char in updated_text:
+    for char in lower_cased_text:
         if char not in char_count:
             char_count[char] = 1
         else:
